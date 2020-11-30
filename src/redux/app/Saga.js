@@ -3,9 +3,7 @@ import {setAppState, getMovies, tryOnlineAgain} from './Actions';
 import {GENRES, POPULAR_MOVIE} from '../../utils/URLs';
 import request from '../../utils/Request';
 import {APIKEY} from '../../const'; 
-import NetInfo from '@react-native-community/netinfo'
 import Restart from 'react-native-restart'
-import { Alert } from 'react-native';
 function* getMovies$(action) {
   const state = yield select();
   const page = state?.app?.page ?? 0;
@@ -40,13 +38,11 @@ function* getMovies$(action) {
   yield put(setAppState({movies, page:pageNum}));
 }
 function* tryOnlineAgain$(action) {
-  const conn = yield NetInfo.fetch();
-  const isConnected = conn?.isConnected
-  if (isConnected) {
+
     Restart.Restart()
+    yield put(setAppState({}));
     return;
-  }else Alert.alert('','Please turn on internet first')
-  yield put(setAppState({}));
+  
 }
 
 export default function* rootSaga() {

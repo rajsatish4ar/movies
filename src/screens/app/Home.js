@@ -52,7 +52,7 @@ const Home = (props) => {
         initialNumToRender={12}
         maxToRenderPerBatch={8}
         showsVerticalScrollIndicator={false}
-        keyExtractor={(item, index) => `TODO${index}`}
+        keyExtractor={(item, index) => `key${item?.id}`}
         onEndReachedThreshold={4}
         onEndReached={()=>dispatch(getMovies())}
         renderItem={(d) => (

@@ -75,9 +75,9 @@ function* emailLogin$(action) {
 
 function* doLogout$(action) {
   yield Pref.clearAll()
-  yield put(resetState())
-  yield put(setAuthState({appFlow: APP_FLOW.APP}));
+  yield put(setAuthState({appFlow: APP_FLOW.LOGIN}));
   Restart.Restart()
+  yield put(setAuthState({}));
 }
 
 
