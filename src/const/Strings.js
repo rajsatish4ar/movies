@@ -1,0 +1,6 @@
+export const ERROR_MSG = 'Something went wrong, try again'
+export const VALID_NAME = 'Enter valid name'
+export const VALID_EMAIL = 'Enter valid email'
+export const VALID_PASS = 'Enter valid password'
+export const SAME_PASS ='Password should be same'
+export const NO_INTERNET = 'No internet available'
